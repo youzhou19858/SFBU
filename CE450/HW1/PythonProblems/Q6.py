@@ -7,8 +7,16 @@ def sumOfProperFactors(N: int) -> int:
             sumOfFactors += (fac + N // fac)
     return sumOfFactors + 1
 
-def isPerfectNumber(N: int) -> int:
-    return sumOfProperFactors(N) == N
+def isPerfectNumber(N) -> int:
+    while True:
+        try:
+            N = int(N)
+            if (N < 0):
+                print('Perfect Number can only be positive.')
+                return False
+            return sumOfProperFactors(N) == N
+        except ValueError:
+            N = input('Please enter a valid positive integer: ')
 
 if __name__ == "__main__":
     print(isPerfectNumber(6))
@@ -18,3 +26,4 @@ if __name__ == "__main__":
     print(isPerfectNumber(33550336))
     print(isPerfectNumber(8))
     print(isPerfectNumber(22))
+    print(isPerfectNumber('aaaaa'))
