@@ -1,5 +1,3 @@
-package CS570.CloudComputing.MapReduce.Pi;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -16,7 +14,7 @@ public class DartsGenerator {
     }
 
     public void generateDarts() {
-        File file = new File(System.getProperty("user.dir") + "/CS570/CloudComputing/MapReduce/Pi/Input/input.txt");
+        File file = new File("./input");
         try (PrintWriter pw = new PrintWriter(file)) {
             for (int i = 0; i < n; i++) {
                 double angle = 2 * Math.PI * rand.nextDouble();
