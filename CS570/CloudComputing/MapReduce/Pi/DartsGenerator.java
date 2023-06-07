@@ -4,12 +4,10 @@ import java.io.PrintWriter;
 import java.util.Random;
 
 public class DartsGenerator {
-    private int radius;
     private int n;
     private static final Random rand = new Random();
 
     public DartsGenerator(int radius, int n) {
-        this.radius = radius;
         this.n = n;
     }
 
@@ -17,10 +15,8 @@ public class DartsGenerator {
         File file = new File("./input");
         try (PrintWriter pw = new PrintWriter(file)) {
             for (int i = 0; i < n; i++) {
-                double angle = 2 * Math.PI * rand.nextDouble();
-                double r = radius * Math.sqrt(rand.nextDouble());
-                double x = r * Math.cos(angle);
-                double y = r * Math.sin(angle);
+                double x = rand.nextDouble() * 2 - 1;
+                double y = rand.nextDouble() * 2 - 1;
                 pw.println(x + "," + y);
             }
         } catch (FileNotFoundException e) {
