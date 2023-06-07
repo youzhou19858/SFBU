@@ -61,4 +61,3 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
-
