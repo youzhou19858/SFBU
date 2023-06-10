@@ -1,5 +1,5 @@
 #include "CommonFacilities.h"
 
 int main() {
-    promptUserDefinedArray(1);
+  promptUserDefinedArray(1);
 }
