@@ -1,22 +1,28 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define UNIT_WAITING_TIME 128
+#define UNIT_WAITING_TIME 1024
 
 void turn_on(int channel) { digitalWrite(channel, LOW); }
 
 void turn_off(int channel) { digitalWrite(channel, HIGH); }
 
 void dot() {
-  turn_on(4);
+  turn_on(3);
   delay(UNIT_WAITING_TIME);
-  turn_off(4);
+  turn_off(3);
 }
 
 void dash() {
-  turn_on(5);
+  turn_on(2);
   delay(UNIT_WAITING_TIME << 1);
-  turn_off(5)
+  turn_off(2);
+}
+
+void interval() {
+  turn_on(5);
+  delay(UNIT_WAITING_TIME << 2);
+  turn_off(5);
 }
 
 void setup() {
@@ -35,18 +41,15 @@ int main() {
   }
 
   setup();
-  const char code[64] = "- . ... - .---- ..--- ...--";
+  const char code[] = "- . ... - .---- ..--- ...--";
   int i = 0;
   while (code[i] != '\0') {
-    switch (code[i]) {
-      case '.':
-        dot();
-        break;
-      case '-':
-        dash();
-      default:
-        delay(UNIT_WAITING_TIME << 2);
-        break;
+    if (code[i] == '.') {
+      dot();
+    } else if (code[i] == '-') {
+      dash();
+    } else {
+      interval();
     }
     ++i;
   }
