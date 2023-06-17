@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define BLINKING_TIME 128
-#define UNIT_WAITING_TIME 256
+#define BLINKING_TIME 256
+#define UNIT_WAITING_TIME 1024
 
 void turn_on(int channel) { digitalWrite(channel, LOW); }
 
@@ -17,14 +17,14 @@ void dot() {
 
 void dash() {
   turn_on(2);
-  delay(BLINKING_TIME);
+  delay(BLINKING_TIME << 1);
   turn_off(2);
   delay(UNIT_WAITING_TIME << 1);
 }
 
 void interval() {
   turn_on(5);
-  delay(BLINKING_TIME);
+  delay(BLINKING_TIME << 2);
   turn_off(5);
   delay(UNIT_WAITING_TIME << 2);
 }
