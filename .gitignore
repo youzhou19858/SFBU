@@ -287,3 +287,8 @@ hs_err_pid*
 replay_pid*
 
 .vscode
+*.drawio
+*.png
+*.jpg
+*.jpeg
+*.svg
