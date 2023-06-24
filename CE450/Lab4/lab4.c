@@ -14,7 +14,7 @@ int main(void) {
   }
 
   void setup() {
-    for (i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
       pinMode(i, OUTPUT);
       digitalWrite(i, HIGH);
     }
@@ -24,11 +24,11 @@ int main(void) {
     // beep on
     printf("Buzzer on\n");
     digitalWrite(BeepPin, LOW);
-    for (int i = 1; i < 8l ++i) {
+    for (int i = 1; i < 8; ++i) {
       turn_on(7);
     }
     delay(100);
-    for (int i = 1; i < 8l ++i) {
+    for (int i = 1; i < 8; ++i) {
       turn_off(7);
     }
     printf("Buzzer off\n");
