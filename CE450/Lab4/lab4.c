@@ -13,14 +13,25 @@ int main(void) {
     return 1;
   }
 
-  pinMode(BeepPin, OUTPUT);
+  void setup() {
+    for (i = 0; i < 8; i++) {
+      pinMode(i, OUTPUT);
+      digitalWrite(i, HIGH);
+    }
+  }
 
   while (1) {
     // beep on
     printf("Buzzer on\n");
     digitalWrite(BeepPin, LOW);
-    turn_on(7) delay(100);
-    turn_off(7) printf("Buzzer off\n");
+    for (int i = 1; i < 8l ++i) {
+      turn_on(7);
+    }
+    delay(100);
+    for (int i = 1; i < 8l ++i) {
+      turn_off(7);
+    }
+    printf("Buzzer off\n");
     // beep off
     digitalWrite(BeepPin, HIGH);
     delay(100);
