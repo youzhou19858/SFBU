@@ -5,6 +5,12 @@
 #define LED 18
 
 int main(void) {
+  if (wiringPiSetup() == -1) {
+    printf("setup wiringPi failed!\n");
+    printf("please check your setup\n");
+    return -1;
+  }
+
   pinMode(BUZZER, OUTPUT);
   digitalWrite(BUZZER, HIGH);
   pinMode(LED, OUTPUT);
