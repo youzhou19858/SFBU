@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define BUZZER 17
-#define LED 18
+#define BUZZER 0
+#define LED 1
 
 int main(void) {
   if (wiringPiSetup() == -1) {
