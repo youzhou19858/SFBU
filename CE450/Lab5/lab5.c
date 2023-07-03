@@ -84,7 +84,7 @@ void timer(int timer1) {
 int main(void) {
   if (wiringPiSetup() == -1) {
     printf("setup wiringPi failed !");
-    return;
+    return -1;
   }
   pinMode(SDI, OUTPUT);
   pinMode(RCLK, OUTPUT);
