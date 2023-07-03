@@ -1,34 +1,41 @@
-import collections
-import heapq
+class Solution:
+    MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    def matching(self, ch2ij: dict[str, set[tuple[int, int]]], W: str, K: int, L: int, T: tuple[int, int]) -> bool:
+        if K == L:
+            return True
+        for ID, JD in Solution.MOVES:
+            NEWIJ = (T[0] + ID, T[1] + JD)
+            if NEWIJ in ch2ij[W[K]]:
+                ch2ij[W[K]].remove(NEWIJ)
+                if self.matching(ch2ij, W, K + 1, L, NEWIJ):
+                    return True
+                ch2ij[W[K]].add(NEWIJ)
+        return False
 
-
-def networkDelayTime(times, n, k):
-    graph = collections.defaultdict(list)
-    for u, v, w in times:
-        graph[u].append((v, w))
-
-    # Priority queue: [(time_cost, node)]
-    queue = [(0, k)]
-    dist = {node: float('inf') for node in range(1, n+1)}
-    dist[k] = 0
-
-    while queue:
-        time_cost, node = heapq.heappop(queue)
-
-        if time_cost != dist[node]:
-            continue
-
-        for v, w in graph[node]:
-            if time_cost + w < dist[v]:
-                dist[v] = time_cost + w
-                heapq.heappush(queue, (dist[v], v))
-
-    max_delay = max(dist.values())
-    return max_delay if max_delay < float('inf') else -1
-
-
-times = [[2, 1, 1], [2, 3, 1], [3, 4, 1]]
-n = 4
-k = 2
-
-print(networkDelayTime(times, n, k))
+    def exist(self, B: List[List[str]], W: str) -> bool:
+        M = len(B)
+        N = len(B[0])
+        L = len(W)
+        if M * N < L or L == 0:
+            return False
+        FREQS = Counter(W)
+        ch2ij = {}
+        for i in range(M):
+            for j in range(N):
+                if B[i][j] not in FREQS:
+                    continue
+                if B[i][j] in ch2ij:
+                    ch2ij[B[i][j]].add((i, j))
+                else:
+                    ch2ij[B[i][j]] = set([(i, j)])
+        for CH, CNT in FREQS.items():
+            if CH not in ch2ij or len(ch2ij[CH]) < CNT:
+                return False
+        first_matches = list(ch2ij[W[0]])
+        while first_matches:
+            T = first_matches.pop()
+            ch2ij[W[0]].remove(T)
+            if self.matching(ch2ij, W, 1, L, T):
+                return True
+            ch2ij[W[0]].add(T)
+        return False
