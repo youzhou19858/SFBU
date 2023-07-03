@@ -11,8 +11,12 @@
 const int placePin[] = {12, 3, 2, 0};
 unsigned char number[] = {0xc0, 0xf9, 0xa4, 0xb0, 0x99,
                           0x92, 0x82, 0xf8, 0x80, 0x90};
+unsigned char letters[] = {0x77, 0x1F, 0x4E, 0x3D, 0x4F, 0x47, 0x5E, 0x37, 0x06,
+                           0x3C, 0x57, 0x0E, 0x55, 0x15, 0x1D, 0x67, 0x73, 0x05,
+                           0x5B, 0x0F, 0x3E, 0x1C, 0x5C, 0x13, 0x3B, 0x6D};
 
 int counter = 0;
+int idxOfLetter = 0;
 
 void pickDigit(int digit) {
   for (int i = 0; i < 4; i++) {
@@ -51,31 +55,32 @@ void loop() {
   while (1) {
     clearDisplay();
     pickDigit(0);
-    hc595_shift(number[counter % 10]);
+    hc595_shift(number[(counter % 25 + 1) % 10]);
 
     clearDisplay();
     pickDigit(1);
-    hc595_shift(number[counter % 100 / 10]);
+    hc595_shift(number[(counter % 25 + 1) % 100 / 10]);
 
     clearDisplay();
     pickDigit(2);
-    hc595_shift(number[counter % 1000 / 100]);
+    hc595_shift(letters[idxOfLetter % 26]);
 
-    clearDisplay();
-    pickDigit(3);
-    hc595_shift(number[counter % 10000 / 1000]);
+    // clearDisplay();
+    // pickDigit(3);
+    // hc595_shift(number[counter % 10000 / 1000]);
   }
 }
 
 void timer(int timer1) {
   if (timer1 == SIGALRM) {
     counter++;
+    idxOfLetter++;
     alarm(1);
     printf("%d\n", counter);
   }
 }
 
-void main(void) {
+int main(void) {
   if (wiringPiSetup() == -1) {
     printf("setup wiringPi failed !");
     return;
