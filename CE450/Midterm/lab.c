@@ -54,11 +54,11 @@ void loop() {
     if (idx) {
       clearDisplay();
       pickDigit(0);
-      hc595_shift(letters[idx - 1]);
+      hc595_shift(letters[str[idx - 1] - 'a']);
     }
     clearDisplay();
     pickDigit(1);
-    hc595_shift(letters[idx]);
+    hc595_shift(letters[str[idx] - 'a']);
 
     if (str[idx] == '\0') {
       break;
