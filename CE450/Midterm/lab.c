@@ -14,7 +14,7 @@ unsigned char letters[] = {0x88, 0x83, 0xa7, 0xa1, 0x86, 0x8e, 0xc2,
                            0xa3, 0x8c, 0x98, 0xaf, 0x92, 0x87, 0xe3,
                            0xd5, 0x81, 0xb6, 0x91, 0x92, 0xff};
 const char str[] = "hiyoudidgoodjob";
-int idx = 0;
+int idx = -1;
 
 void pickDigit(int digit) {
   for (int i = 0; i < 4; i++) {
@@ -58,7 +58,7 @@ void loop() {
     }
     clearDisplay();
     pickDigit(1);
-    hc595_shift(letters[idx++]);
+    hc595_shift(letters[idx]);
 
     if (str[idx] == '\0') {
       break;
@@ -68,6 +68,7 @@ void loop() {
 
 void timer(int timer1) {
   if (timer1 == SIGALRM) {
+    printf("%c\n", str[++idx]);
     alarm(1);
   }
 }
