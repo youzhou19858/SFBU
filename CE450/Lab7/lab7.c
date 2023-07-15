@@ -24,11 +24,13 @@ int main(void) {
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, HIGH);
     digitalWrite(MotorPin2, LOW);
+    delay(200);
     digitalWrite(YellowLED, LOW);
-    delay(5000);
+    delay(6000);
 
     printf("Stop\n");
     digitalWrite(MotorEnable, LOW);
+    delay(200);
     digitalWrite(YellowLED, HIGH);
     delay(200);
 
@@ -36,11 +38,13 @@ int main(void) {
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, LOW);
     digitalWrite(MotorPin2, HIGH);
+    delay(200);
     digitalWrite(RedLED, LOW);
-    delay(5000);
+    delay(6000);
 
     printf("Stop\n");
     digitalWrite(MotorEnable, LOW);
+    delay(200);
     digitalWrite(RedLED, HIGH);
     delay(200);
   }
