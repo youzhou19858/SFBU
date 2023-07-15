@@ -26,27 +26,31 @@ int main(void) {
 
   while (1) {
     printf("Clockwise\n");
+    digitalWrite(YellowLED, LOW);
+    delay(200);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, HIGH);
     digitalWrite(MotorPin2, LOW);
-    digitalWrite(YellowLED, LOW);
     delay(3000);
 
     printf("Stop\n");
-    digitalWrite(MotorEnable, LOW);
     digitalWrite(YellowLED, HIGH);
+    delay(200);
+    digitalWrite(MotorEnable, LOW);
     delay(3000);
 
     printf("Anti-clockwise\n");
+    digitalWrite(RedLED, LOW);
+    delay(200);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, LOW);
     digitalWrite(MotorPin2, HIGH);
-    digitalWrite(RedLED, LOW);
     delay(3000);
 
     printf("Stop\n");
-    digitalWrite(MotorEnable, LOW);
     digitalWrite(RedLED, HIGH);
+    delay(200);
+    digitalWrite(MotorEnable, LOW);
     delay(3000);
   }
   return 0;
