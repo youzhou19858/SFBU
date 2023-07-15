@@ -8,7 +8,6 @@
 #define RedLED 5
 
 int main(void) {
-  int i;
   if (wiringPiSetup() ==
       -1) {  // when initialize wiring failed, print message to screen
     printf("setup wiringPi failed !");
@@ -22,7 +21,6 @@ int main(void) {
   pinMode(RedLED, OUTPUT);
   while (1) {
     printf("Clockwise\n");
-    delay(100);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, HIGH);
     digitalWrite(MotorPin2, LOW);
@@ -30,13 +28,11 @@ int main(void) {
     delay(5000);
 
     printf("Stop\n");
-    delay(100);
     digitalWrite(MotorEnable, LOW);
     digitalWrite(YellowLED, HIGH);
-    delay(2000);
+    delay(200);
 
     printf("Anti-clockwise\n");
-    delay(100);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, LOW);
     digitalWrite(MotorPin2, HIGH);
@@ -44,10 +40,9 @@ int main(void) {
     delay(5000);
 
     printf("Stop\n");
-    delay(100);
     digitalWrite(MotorEnable, LOW);
     digitalWrite(RedLED, HIGH);
-    delay(2000);
+    delay(200);
   }
   return 0;
 }
