@@ -13,12 +13,17 @@ int main(void) {
     printf("setup wiringPi failed !");
     return 1;
   }
-
   pinMode(MotorPin1, OUTPUT);
   pinMode(MotorPin2, OUTPUT);
   pinMode(MotorEnable, OUTPUT);
   pinMode(YellowLED, OUTPUT);
   pinMode(RedLED, OUTPUT);
+
+  digitalWrite(MotorEnable, LOW);
+  digitalWrite(YellowLED, HIGH);
+  digitalWrite(RedLED, HIGH);
+  delay(1000);
+
   while (1) {
     printf("Clockwise\n");
     digitalWrite(MotorEnable, HIGH);
@@ -32,7 +37,7 @@ int main(void) {
     digitalWrite(MotorEnable, LOW);
     delay(200);
     digitalWrite(YellowLED, HIGH);
-    delay(200);
+    delay(2000);
 
     printf("Anti-clockwise\n");
     digitalWrite(MotorEnable, HIGH);
@@ -46,7 +51,7 @@ int main(void) {
     digitalWrite(MotorEnable, LOW);
     delay(200);
     digitalWrite(RedLED, HIGH);
-    delay(200);
+    delay(2000);
   }
   return 0;
 }
