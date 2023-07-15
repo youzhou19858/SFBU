@@ -22,36 +22,32 @@ int main(void) {
   digitalWrite(MotorEnable, LOW);
   digitalWrite(YellowLED, HIGH);
   digitalWrite(RedLED, HIGH);
-  delay(1000);
+  delay(2000);
 
   while (1) {
     printf("Clockwise\n");
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, HIGH);
     digitalWrite(MotorPin2, LOW);
-    delay(200);
     digitalWrite(YellowLED, LOW);
-    delay(6000);
+    delay(3000);
 
     printf("Stop\n");
     digitalWrite(MotorEnable, LOW);
-    delay(200);
     digitalWrite(YellowLED, HIGH);
-    delay(2000);
+    delay(3000);
 
     printf("Anti-clockwise\n");
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, LOW);
     digitalWrite(MotorPin2, HIGH);
-    delay(200);
     digitalWrite(RedLED, LOW);
-    delay(6000);
+    delay(3000);
 
     printf("Stop\n");
     digitalWrite(MotorEnable, LOW);
-    delay(200);
     digitalWrite(RedLED, HIGH);
-    delay(2000);
+    delay(3000);
   }
   return 0;
 }
