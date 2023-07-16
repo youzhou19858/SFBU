@@ -4,8 +4,8 @@
 #define MotorPin1 0
 #define MotorPin2 2
 #define MotorEnable 3
-#define YellowLED 4
-#define RedLED 5
+#define YellowLED 5
+#define RedLED 4
 
 int main(void) {
   if (wiringPiSetup() ==
@@ -20,38 +20,38 @@ int main(void) {
   pinMode(RedLED, OUTPUT);
 
   digitalWrite(MotorEnable, LOW);
-  digitalWrite(YellowLED, HIGH);
-  digitalWrite(RedLED, HIGH);
+  //digitalWrite(YellowLED, HIGH);
+  //digitalWrite(RedLED, HIGH);
   delay(2000);
 
   while (1) {
     printf("Clockwise\n");
-    digitalWrite(YellowLED, LOW);
-    delay(200);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, HIGH);
     digitalWrite(MotorPin2, LOW);
+    digitalWrite(YellowLED, LOW);
+    digitalWrite(RedLED, HIGH);
     delay(3000);
 
     printf("Stop\n");
     digitalWrite(YellowLED, HIGH);
-    delay(200);
+    digitalWrite(RedLED, LOW);
     digitalWrite(MotorEnable, LOW);
-    delay(3000);
+    delay(5000);
 
     printf("Anti-clockwise\n");
-    digitalWrite(RedLED, LOW);
-    delay(200);
     digitalWrite(MotorEnable, HIGH);
     digitalWrite(MotorPin1, LOW);
     digitalWrite(MotorPin2, HIGH);
+    digitalWrite(RedLED, LOW);
+    digitalWrite(YellowLED, HIGH);
     delay(3000);
 
     printf("Stop\n");
-    digitalWrite(RedLED, HIGH);
-    delay(200);
     digitalWrite(MotorEnable, LOW);
-    delay(3000);
+    digitalWrite(RedLED, HIGH);
+    digitalWrite(YellowLED, LOW);
+    delay(5000);
   }
   return 0;
 }
