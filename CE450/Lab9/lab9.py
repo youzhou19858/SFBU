@@ -220,17 +220,8 @@ def safe_exit(signum, frame):
 
 def main():
     txt = "you did good job"
-    a = 0
     while True:
-        if a + 16 < len(txt):
-            lcd.message(txt[a:a+16], 1)
-        if a + 16 >= len(txt):
-            b = txt[a:len(txt)]
-            c = 16 - len(b)
-            lcd.message(b + '   ' + txt[0:c], 1)
-        if a == len(txt):
-            a = -1
-        a += 1
+        lcd.message(txt)
         sleep(1)
 
 
