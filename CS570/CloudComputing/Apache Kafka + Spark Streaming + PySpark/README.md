@@ -1,0 +1,7 @@
+[google slides](https://docs.google.com/presentation/d/1c2lN3CQnfyzT6tTACZ35OyFqsAHlbf7IAWECHF7_FZQ/edit#slide=id.p)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0001](https://github.com/youzhou19858/SFBU/assets/135424132/8aa729c9-32e8-40a5-b242-c09abe4a977f)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0002](https://github.com/youzhou19858/SFBU/assets/135424132/d2f39a72-e003-4fe8-95f5-17c3e8504d9c)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0003](https://github.com/youzhou19858/SFBU/assets/135424132/67a5ca7f-d82e-4a36-8613-d95d50dc4920)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0004](https://github.com/youzhou19858/SFBU/assets/135424132/70314335-af3e-43f3-960e-978782e1650d)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0005](https://github.com/youzhou19858/SFBU/assets/135424132/29698b2b-982b-404c-8d85-3e1dc917b1e0)
+![cs570_week12_homework1wholeproject_19858_you_zhou_page-0006](https://github.com/youzhou19858/SFBU/assets/135424132/f1d9b3ca-362f-4071-8164-89b4d243f803)
