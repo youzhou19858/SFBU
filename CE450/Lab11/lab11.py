@@ -19,9 +19,9 @@ def displayLetter(letter: str):
 def main():
     while True:
         displayLetter("A")
-        time.sleep(5)
+        time.sleep(2)
         displayLetter("B")
-        time.sleep(5)
+        time.sleep(2)
 
 
 def destroy():
