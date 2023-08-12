@@ -11,33 +11,17 @@ device = max7219(serial, rotate=1)
 virtual = viewport(device, width=200, height=400)
 
 
-def displayRectangle():
+def displayLetter(letter: str):
     with canvas(device) as draw:
-        draw.rectangle(device.bounding_box, outline="white", fill="black")
-
-
-def displayLetter():
-    with canvas(device) as draw:
-        text(draw, (0, 0), "A", fill="white", font=proportional(CP437_FONT))
-
-
-def scrollToDisplayText():
-    with canvas(virtual) as draw:
-        text(draw, (0, 0), "Hello, Nice to meet you!",
-             fill="white", font=proportional(CP437_FONT))
-
-    for offset in range(150):
-        virtual.set_position((offset, 0))
-        time.sleep(0.1)
+        text(draw, (0, 0), letter, fill="white", font=proportional(CP437_FONT))
 
 
 def main():
     while True:
-        displayRectangle()
-        time.sleep(2)
-        displayLetter()
-        time.sleep(2)
-        scrollToDisplayText()
+        displayLetter("A")
+        time.sleep(5)
+        displayLetter("B")
+        time.sleep(5)
 
 
 def destroy():
