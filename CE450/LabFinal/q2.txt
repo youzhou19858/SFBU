@@ -1,0 +1,5 @@
+(a) x -> 0x4500 as x is simply a pointer to the beginning of the array
+(b) &x[0] -> 0x4500 as the address of the first element of the array coincides with the pointer to the array
+(c) *x -> 1 as *x is basically x[0]
+(d) x[1] -> 2 as x[1] is basically *(x + 1) dereferencing the pointer to the second element of the array
+(e) &x[1] -> 0x4504 as one int(4 bytes) to the right of the beginning of the array
